@@ -33,7 +33,7 @@ public class  User {
 
     @JdbcTypeCode(SqlTypes.JSON)
     @Column(name = "insights",columnDefinition = "json")
-    private UserInsights userInsights;
+    private Insight userInsights;
 
     @OneToMany(mappedBy = "user",cascade = CascadeType.ALL,orphanRemoval = true)
     private Set<UserRole> userRoles = new HashSet<>();

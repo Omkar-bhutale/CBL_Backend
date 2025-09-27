@@ -7,7 +7,7 @@ import java.util.List;
 
 // data structure for the JSONB column.
 @Data
-public class UserInsights {
+public class Insight {
 
     private String bestLanguage;
     private List<String> weakAreas;

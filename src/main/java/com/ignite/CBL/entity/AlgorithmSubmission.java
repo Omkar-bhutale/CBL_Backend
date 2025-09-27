@@ -7,24 +7,18 @@ import lombok.Setter;
 @Entity
 @Getter
 @Setter
-@Table(name = "pseudocode_submissions")
-public class PseudocodeSubmission {
-
+@Table(name = "algorithm_submissions")
+public class AlgorithmSubmission {
     @Id
-    @Column(name = "pseudocode_submission_id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer pseudocodeSubmissionId;
-
+    @Column(name = "algorithm_id")
+    private Integer algorithmId;
     @Lob
-    @Column(name = "content")
+    @Column(name = "content",nullable = false)
     private String content;
 
-    @Lob
-    @Column(name = "feedback")
-    private String feedback;
-
-    @Column(name = "version",nullable = false)
-    private int version = 0;
+    @Column(name = "varsion",nullable = false)
+    private int version = 1;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id",nullable = false)
@@ -32,5 +26,5 @@ public class PseudocodeSubmission {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "problem_id",nullable = false)
-    private Problem problem;
+    private Problem   problem;
 }
