@@ -27,23 +27,19 @@ public class Batch {
     @Column(name = "end_date")
     private LocalDateTime endDate;
 
+
+
     @OneToMany(
             mappedBy = "batch",
             cascade = CascadeType.ALL,
             orphanRemoval = true
     )
-    private Set<SubBatch> subBatches = new HashSet<>();
 
-    public void addSubBatch(SubBatch subBatch) {
-        subBatch.setBatch(this);
-        subBatches.add(subBatch);
-    }
 
-    public void removeSubBatch(SubBatch subBatch) {
+    private Set<BatchCourseAssignment> courseAssignments = new HashSet<>();
+    @OneToMany(mappedBy = "batch",cascade = CascadeType.ALL,orphanRemoval = true)
+    private Set<UserBatchAssignment> userBatchAssignments = new HashSet<>();
 
-        subBatches.remove(subBatch);
-        subBatch.setBatch(null);
-    }
 
 
 

@@ -29,8 +29,13 @@ public class Topic {
     private LocalDateTime createdAt;
 
     @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "course_id", nullable = false)
+    private Course course;
+
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "creater_id", nullable = false)
     private User createdBy;
+
 
     @PrePersist
     protected void onCreate() {

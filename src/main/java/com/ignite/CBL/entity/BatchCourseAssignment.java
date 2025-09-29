@@ -5,21 +5,23 @@ import lombok.Getter;
 import lombok.Setter;
 
 @Entity
-@Table(name = "user_batch_assignments")
+@Table(name = "Batch_Course_Assignments")
 @Getter
 @Setter
-public class UserBatchAssignment {
+public class BatchCourseAssignment {
 
     @EmbeddedId
-    private UserBatchAssignmentId id;
-
-    @ManyToOne(fetch = FetchType.LAZY)
-    @MapsId("userId")
-    @JoinColumn(name = "user_id")
-    private User user;
+    private BatchCourseAssignmentId id;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @MapsId("batchId")
     @JoinColumn(name = "batch_id")
     private Batch batch;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @MapsId("courseId")
+    @JoinColumn(name = "course_id")
+    private Course course;
+
+
 }

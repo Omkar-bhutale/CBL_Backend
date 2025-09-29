@@ -14,8 +14,8 @@ import java.io.Serializable;
 public class UserBatchAssignmentId  implements Serializable {
     @Column(name = "user_id",nullable = false)
     private String userId;
-    @Column(name = "sub_batch_id",nullable = false)
-    private Integer subBatchId;
+    @Column(name = "batch_id",nullable = false)
+    private Integer batchId;
 
 
 }
